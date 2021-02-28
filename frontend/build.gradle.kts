@@ -43,11 +43,17 @@ tasks.named("build") {
 
 // see: https://fbflex.wordpress.com/2014/03/14/building-web-content-jars-for-spring-boot-with-gradle/
 tasks.register<Jar>("webjar") {
-    dependsOn("jar") //
+    // dependsOn("jar") // done with finalizedBy in jar
     from(fileTree("dist")) {
         into("META-INF/resources")
     }
 }
+
+tasks.named("jar") {
+    dependsOn("buildFrontend") //
+    finalizedBy("webjar") //
+}
+
 
 publishing {
     publications {

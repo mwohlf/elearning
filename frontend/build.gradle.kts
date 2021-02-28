@@ -32,19 +32,20 @@ tasks.register<YarnTask>("buildFrontend") {
     dependsOn("yarn_install") //
 
     description = "Builds the frontend into the dist directory"
+    // outputs.dir("src/main/resources/static")
     // workingDir = file("${project.projectDir}/src/main/webapp")
     args.set(listOf("run", "build"))
 }
 
 // tasks.register<DefaultTask>("build") {
-tasks.named("build") {
+tasks.named("processResources") {
     dependsOn("buildFrontend") //
 }
 
 // see: https://fbflex.wordpress.com/2014/03/14/building-web-content-jars-for-spring-boot-with-gradle/
 tasks.register<Jar>("webjar") {
     // dependsOn("jar") // done with finalizedBy in jar
-    from(fileTree("dist")) {
+    from(fileTree("build/dist")) {
         into("META-INF/resources")
     }
 }
@@ -54,6 +55,13 @@ tasks.named("jar") {
     finalizedBy("webjar") //
 }
 
+// tasks.register<DefaultTask>("build") {
+tasks.create<Delete>("mrproper") {
+    dependsOn("clean")
+    delete = setOf (
+        ".node", "node_modules"
+    )
+}
 
 publishing {
     publications {

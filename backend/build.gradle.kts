@@ -20,6 +20,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation(project(":frontend"))
+    // implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
+    implementation("org.webjars:webjars-locator-core")
+
+
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -48,6 +52,12 @@ publishing {
 
 // see: https://spring.io/blog/2020/04/15/announcing-the-spring-authorization-server
 
+tasks.create<Delete>("mrproper") {
+    dependsOn("clean")
+   // delete = setOf (
+   //     ".node", "node_modules"
+   // )
+}
 
 tasks.withType<Test> {
     useJUnitPlatform()

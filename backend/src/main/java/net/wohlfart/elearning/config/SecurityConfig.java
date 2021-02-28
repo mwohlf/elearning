@@ -1,4 +1,4 @@
-package net.wohlfart.elearning.configuration;
+package net.wohlfart.elearning.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

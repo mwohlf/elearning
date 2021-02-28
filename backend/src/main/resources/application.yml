@@ -1,0 +1,13 @@
+
+
+management:
+  endpoints:  # actuator enpoints https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+    enabled-by-default: false
+  endpoint:
+    info:
+      enabled: true
+
+
+
+# auth server:
+# https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/html5/

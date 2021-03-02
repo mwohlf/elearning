@@ -20,9 +20,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     // the frontend consists of a webjar package
-    implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
-    // implementation(project(":frontend"))
-    implementation("org.webjars:webjars-locator-core")
+    // implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
+    implementation(project(":frontend"))
+    // implementation("org.webjars:webjars-locator-core")
 
 
     compileOnly("org.projectlombok:lombok")

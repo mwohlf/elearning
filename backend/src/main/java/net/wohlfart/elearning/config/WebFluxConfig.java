@@ -8,7 +8,6 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 @Configuration
 public class WebFluxConfig {
 
-    /*
     @Bean
     public WebFluxConfigurer webConfigurer() {
 
@@ -22,5 +21,4 @@ public class WebFluxConfig {
         };
 
     }
-    */
 }

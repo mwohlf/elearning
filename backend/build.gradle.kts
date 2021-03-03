@@ -19,9 +19,9 @@ dependencies {
     // implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    // the frontend consists of a webjar package
-    // implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
-    implementation(project(":frontend"))
+    // fetch the webjar from the local maven repo, we need to make sure there is a recent version
+    implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
+    // implementation(project(":frontend"))
     // implementation("org.webjars:webjars-locator-core")
 
 

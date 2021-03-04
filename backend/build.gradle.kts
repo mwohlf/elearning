@@ -56,7 +56,8 @@ publishing {
 
 // see: https://spring.io/blog/2020/04/15/announcing-the-spring-authorization-server
 
-tasks.named("processResources") {
+// we need the frontend jar in the maven repo
+tasks.named("assemble") {
     dependsOn(":frontend:publishToMavenLocal") //
 }
 

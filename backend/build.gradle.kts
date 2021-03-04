@@ -58,7 +58,7 @@ publishing {
 
 // we need the frontend jar in the maven repo
 tasks.named("assemble") {
-    dependsOn(":frontend:publishToMavenLocal") //
+    finalizedBy(":frontend:publishToMavenLocal") //
 }
 
 

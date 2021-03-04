@@ -1,0 +1,9 @@
+language: java
+sudo: false
+jdk:
+  - openjdk15
+before_script:
+  - pwd
+  - ls
+script:
+  - ./gradlew build

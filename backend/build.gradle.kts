@@ -2,6 +2,9 @@ plugins {
     id("java")
     id("org.springframework.boot").version("2.4.3")
     id("io.spring.dependency-management").version("1.0.11.RELEASE")
+   // id("docker")
+   // id("com.palantir.git-version")
+    // openjdk:15-jdk-buster-node-browsers
 }
 
 java {
@@ -52,6 +55,11 @@ publishing {
 // }
 
 // see: https://spring.io/blog/2020/04/15/announcing-the-spring-authorization-server
+
+tasks.named("processResources") {
+    dependsOn(":frontend:publishToMavenLocal") //
+}
+
 
 tasks.create<Delete>("mrproper") {
     dependsOn("clean")

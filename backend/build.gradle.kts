@@ -82,12 +82,31 @@ tasks.withType<Test> {
 }
 
 // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
-//
+// https://stackoverflow.com/questions/41984399/denied-requested-access-to-the-resource-is-denied-docker
 tasks.create<Exec>("buildImage") {
-    // workingDir("$buildDir")
     dependsOn("bootJar")
     executable("docker")
-    args("build", "-t", "elearning", ".")
-    // docker run -p 8080:8080 elearning:latest
+    args("build", "-t", "elearning:latest", ".")
 }
 
+tasks.create<Exec>("tagImage") {
+    dependsOn("buildImage")
+    executable("docker")
+    args("tag", "elearning:latest", "mwohlf/repo:elearning-latest")
+}
+
+// see: https://docs.travis-ci.com/user/encryption-keys/
+// see: https://docs.travis-ci.com/user/encryption-keys/
+//
+//  travis encrypt DOCKERHUB_USER=xxxxx -r user/repo --add
+//  travis encrypt DOCKERHUB_PASSWD=xxxxx -r user/repo --add
+tasks.create<Exec>("repoLogin") {
+    executable("docker")
+    args("login", "-u=" + System.getenv("DOCKERHUB_USER"), "-p="  + System.getenv("DOCKERHUB_USER"))
+}
+
+tasks.create<Exec>("pushImage") {
+    dependsOn("tagImage", "repoLogin")
+    executable("docker")
+    args("push", "mwohlf/repo:elearning-latest")
+}

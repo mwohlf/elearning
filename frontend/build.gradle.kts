@@ -67,7 +67,8 @@ publishing {
     publications {
         // see: https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#publishing-your-application
         create<MavenPublication>("frontend") {
-            artifact(tasks.getByName("webjar"))
+            // artifact(tasks.getByName("webjar"))
+            artifact(tasks.getByName("jar"))
         }
     }
 }

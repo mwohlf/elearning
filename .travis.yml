@@ -2,8 +2,10 @@ language: java
 sudo: false
 jdk:
   - openjdk15
+services:
+  - docker
 before_script:
   - pwd
   - ls
 script:
-  - ./gradlew build
+  - ./gradlew buildImage

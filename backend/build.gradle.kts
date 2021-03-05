@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar;
+
 plugins {
     id("java")
     id("org.springframework.boot").version("2.4.3")
@@ -61,12 +63,13 @@ tasks.named("compileJava") {
     dependsOn(":frontend:publishToMavenLocal") //
 }
 
+tasks.named<BootJar>("bootJar") {
+    dependsOn("compileJava") //
+    archiveFileName.set("fat.jar")
+}
 
 tasks.create<Delete>("mrproper") {
     dependsOn("clean")
-   // delete = setOf (
-   //     ".node", "node_modules"
-   // )
 }
 
 tasks.withType<Test> {
@@ -77,3 +80,14 @@ tasks.withType<Test> {
         // events(PASSED, SKIPPED, FAILED)
     }
 }
+
+// https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+//
+tasks.create<Exec>("buildImage") {
+    // workingDir("$buildDir")
+    dependsOn("bootJar")
+    executable("docker")
+    args("build", "-t", "elearning", ".")
+    // docker run -p 8080:8080 elearning:latest
+}
+

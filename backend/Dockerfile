@@ -1,8 +1,8 @@
-FROM openjdk:11-jre-slim
+FROM adoptopenjdk/openjdk15:jdk-15.0.2_7-alpine
 
 EXPOSE 8080
 
-ADD build/libs/kundenportal.jar app.jar
+ADD build/libs/fat.jar app.jar
 
 ENTRYPOINT exec java ${JAVA_OPTS:-} \
   -Djava.security.egd=file:/dev/urandom \

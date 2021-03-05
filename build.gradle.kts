@@ -25,4 +25,6 @@ tasks.register<DefaultTask>("info") {
     println("   * gradle build: create the artifacts")
     println("   * gradle publishToMavenLocal: publish artifacts")
     println("   * gradle bootRun: start the springboot application")
+    println("   * gradle buildImage: create the docker image")
+    println("   * docker run -p 8080:8080 elearning:latest   -- to run the created docker image")
 }

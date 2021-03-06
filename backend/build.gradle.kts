@@ -98,10 +98,12 @@ tasks.create<Exec>("tagImage") {
 // see: https://docs.travis-ci.com/user/encryption-keys/
 tasks.create<Exec>("repoLogin") {
     executable("docker")
-    args("login",
-        "-u=" + System.getenv("REGISTRY_USER"),
-        "-p="  + System.getenv("REGISTRY_PASSWD"),
-        System.getenv("REGISTRY_SERVER"))
+
+    val user = System.getenv("REGISTRY_USER")
+    val passwd = System.getenv("REGISTRY_PASSWD")
+    val server = System.getenv("REGISTRY_SERVER")
+
+    args("login", "-u=$user", "-p=$passwd", server)
 }
 
 tasks.create<Exec>("pushImage") {

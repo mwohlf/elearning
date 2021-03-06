@@ -16,14 +16,16 @@ java {
 
 dependencies {
     // to monitor an interact with the backend application
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.5.5")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springdoc:springdoc-openapi-security:1.5.5")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     // implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
     // implementation("org.springframework.boot:spring-boot-starter-freemarker")
     // implementation("org.springframework.boot:spring-boot-starter-mail")
     // implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     // implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
     // fetch the webjar from the local maven repo, we need to make sure there is a recent version
     implementation("net.wohlfart.next:frontend:0.0.1-SNAPSHOT")
     // implementation(project(":frontend"))
@@ -103,7 +105,7 @@ tasks.create<Exec>("repoLogin") {
     val passwd = System.getenv("REGISTRY_PASSWD")
     val server = System.getenv("REGISTRY_SERVER")
 
-    args("login", "-u=$user", "-p=$passwd", server)
+    args("login", "-u=$user", "-p=$passwd", "$server")
 }
 
 tasks.create<Exec>("pushImage") {

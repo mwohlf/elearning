@@ -7,7 +7,9 @@ management:
     info:
       enabled: true
 
-
+springdoc:
+  api-docs:
+    enabled: true
 
 # auth server:
 # https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/html5/

@@ -92,21 +92,32 @@ tasks.create<Exec>("buildImage") {
 tasks.create<Exec>("tagImage") {
     dependsOn("buildImage")
     executable("docker")
-    args("tag", "elearning:latest", "mwohlf/repo:elearning-latest")
+    args("tag", "elearning:latest", "reg4sono.azurecr.io/reg4sono:elearning-latest")
 }
 
 // see: https://docs.travis-ci.com/user/encryption-keys/
-// see: https://docs.travis-ci.com/user/encryption-keys/
-//
-//  travis encrypt DOCKERHUB_USER=xxxxx -r user/repo --add
-//  travis encrypt DOCKERHUB_PASSWD=xxxxx -r user/repo --add
 tasks.create<Exec>("repoLogin") {
     executable("docker")
-    args("login", "-u=" + System.getenv("DOCKERHUB_USER"), "-p="  + System.getenv("DOCKERHUB_USER"))
+    args("login",
+        "-u=" + System.getenv("REGISTRY_USER"),
+        "-p="  + System.getenv("REGISTRY_PASSWD"),
+        System.getenv("REGISTRY_SERVER"))
 }
 
 tasks.create<Exec>("pushImage") {
     dependsOn("tagImage", "repoLogin")
     executable("docker")
-    args("push", "mwohlf/repo:elearning-latest")
+    args("push", "reg4sono.azurecr.io/reg4sono:elearning-latest")
 }
+
+
+
+// push to...
+//   Registry name
+//
+//  docker tag elearning:latest mwohlf/repo:elearning-latest
+//  docker login -u="mwohlf" -p="2Eo5XfCiXJBpF23o"
+//  docker push mwohlf/repo:elearning-latest
+//
+//  docker tag local-image:tagname new-repo:tagname
+//   docker push new-repo:tagname

@@ -1,0 +1,37 @@
+// Import library functions for theme creation.
+// https://material.angular.io/guide/theming-your-components
+@import '~@angular/material/theming';
+@mixin footer-theme-color($config-or-theme) {
+    // Extract the color configuration in case a theme has been passed.
+    // This allows consumers to either pass a theme object or a color configuration.
+    $config: mat-get-color-config($config-or-theme);
+    // Extract the palettes you need from the theme definition.
+    $primary-palette: map-get($app-theme, primary);
+    $accent-palette: map-get($app-theme, accent);
+    $warn-palette: map-get($app-theme, warn);
+    $background-palette: map-get($app-theme, background);
+    $foreground-palette: map-get($app-theme, foreground);
+
+    // Define any styles affected by the theme.
+    p.footer {
+        padding-top: 2em;
+        text-align: center;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        padding: 0 3em;
+        color: mat-color($foreground-palette, base);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+}
+
+@mixin footer-theme-typography($config-or-theme) {
+    // Extract the typography configuration in case a theme has been passed.
+    $config: mat-get-typography-config($config-or-theme);
+}
+

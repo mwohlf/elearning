@@ -1,0 +1,19 @@
+@import './theme.scss';
+
+$primary-palette: map-get($app-theme, primary);
+$accent-palette: map-get($app-theme, accent);
+$warn-palette: map-get($app-theme, warn);
+$background-palette: map-get($app-theme, background);
+$foreground-palette: map-get($app-theme, foreground);
+
+
+html,
+body {
+    height: 100vh;
+    background: mat-color($primary-palette, default);
+    color: mat-color($foreground-palette, base);
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

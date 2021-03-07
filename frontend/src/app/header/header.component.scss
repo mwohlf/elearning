@@ -1,3 +1,4 @@
+@import "constants";
 
 .header {
     display: flex;
@@ -11,16 +12,15 @@
 }
 
 .logo img {
-    height: 70px;
+    height: 50px;
 }
 
-@media (--mat-large) {
+@media ($mat-large) {
     .header {
         justify-content: flex-end;
     }
     .logo img {
         height: 90px;
     }
-
 }
 

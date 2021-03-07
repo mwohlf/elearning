@@ -1,13 +1,27 @@
+@import "constants";
 
 .start {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    height: 100%;
+}
+
+.padding {
+    flex-grow: 1;
 }
 
 .column {
-    width: 20em;
-    display: flex;
+    flex-grow: 0;
+    display: flex; // -- flex for the buttons
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 0 auto;
+    width: 20em;
+    gap: 1em;
+    margin: 0 auto 0 auto;
+}
+
+@media ($mat-large) {
+    .padding {
+        flex-grow: 0;
+    }
 }

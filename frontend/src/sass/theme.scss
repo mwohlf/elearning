@@ -1,0 +1,49 @@
+// from https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html
+//      https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// we need some base color palettes that get turned into material color palettes
+@import 'base-palettes';
+// mix-in that generates Material’s core styles
+@include mat-core();
+
+// mat-palette() turns a base-palette into a material palette with some optional configured default colors
+
+// Primary - Main colors most widely used across all screens and components.
+$app-primary-palette: mat-palette($palette0, 500);
+// Accent - Also known as the secondary color. Used for floating action buttons and interactive elements.
+$app-accent-palette: mat-palette($palette1, 500);
+// Warn - Colors to convey error state.
+$app-warn-palette: mat-palette($mat-red, 500, A200, A700);
+// Foreground - Used for text and icons, defaults to $mat-light-theme-foreground,
+// Background - Colors used for element backgrounds, defaults to $mat-light-theme-background,
+
+// creating the theme
+$app-theme: mat-dark-theme((
+    color: (
+        primary: $app-primary-palette,
+        accent: $app-accent-palette,
+        warn: $app-warn-palette,
+    )
+));
+// updating main theme, passes that theme object to other mix-ins for each component, so they can access the color values from there:
+@include angular-material-theme($app-theme);
+
+
+
+// dispatching the theme to our custom components so we can re-use the theme properties instead of hardcoding stuff...
+
+@import 'src/app/footer/footer.theme.scss';
+
+@mixin custom-theme($theme) {
+    @include footer-theme-color($theme);
+    @include footer-theme-typography($theme);
+}
+
+@include custom-theme($app-theme);
+
+
+
+
+
+
+

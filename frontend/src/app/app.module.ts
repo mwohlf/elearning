@@ -11,6 +11,12 @@ import {HomeComponent} from './home/home.component';
 import {TopicsComponent} from './topics/topics.component';
 import {StartComponent} from './start/start.component';
 import {MatButtonModule} from "@angular/material/button";
+import { TutorialComponent } from './tutorial/tutorial.component';
+import { LoginComponent } from './login/login.component';
+import { CookiesComponent } from './cookies/cookies.component';
+import { AboutComponent } from './about/about.component';
+import { GdprComponent } from './gdpr/gdpr.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +25,13 @@ import {MatButtonModule} from "@angular/material/button";
         HeaderComponent,
         HomeComponent,
         TopicsComponent,
-        StartComponent
+        StartComponent,
+        TutorialComponent,
+        LoginComponent,
+        CookiesComponent,
+        AboutComponent,
+        GdprComponent,
+        ErrorComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,20 @@
+
+.body {
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
+    grid-template-rows: min-content 1fr min-content;
+}
+
+header {
+    grid-column: 1 / -1;
+}
+
+main {
+    grid-column: 1 / -1;
+}
+
+footer {
+    grid-column: 1 / -1;
+}

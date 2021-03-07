@@ -1,0 +1,13 @@
+
+.start {
+    text-align: center;
+}
+
+.column {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto;
+}

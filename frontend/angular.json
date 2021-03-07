@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/theme.scss"
             ],
             "scripts": []
           },
@@ -91,7 +92,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/theme.scss"
             ],
             "scripts": []
           }
@@ -127,7 +129,7 @@
   "defaultProject": "elearning",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "css"
+      "styleext": "scss"
     }
   }
 }

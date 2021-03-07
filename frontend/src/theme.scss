@@ -85,8 +85,18 @@ $primary-color: mat-color($primary);
 $accent-color: mat-color($accent);
 $warn-color: mat-color($warn);
 
+// $mat-large: 'min-width: 960px';
+
+
 html,
 body {
     background: $primary-color;
     color: #ffffff;
 }
+
+:root {
+    --mat-large: 'min-width: 960px';
+}
+
+
+

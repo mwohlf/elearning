@@ -2,10 +2,7 @@
 .header {
     display: flex;
     flex-direction: row;
-}
-
-.padding {
-    flex-grow: 1;
+    justify-content: center;
 }
 
 .logo {
@@ -14,5 +11,16 @@
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
 }
+
+@media (--mat-large) {
+    .header {
+        justify-content: flex-end;
+    }
+    .logo img {
+        height: 90px;
+    }
+
+}
+

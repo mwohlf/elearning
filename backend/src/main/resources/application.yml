@@ -7,9 +7,14 @@ management:
     info:
       enabled: true
 
+# see: https://www.dariawan.com/tutorials/spring/documenting-spring-boot-rest-api-springdoc-openapi-3/
 springdoc:
   api-docs:
     enabled: true
+
+logging:
+  level:
+    net.wohlfart.elearning: debug
 
 # auth server:
 # https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/html5/

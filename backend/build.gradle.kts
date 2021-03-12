@@ -2,9 +2,12 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar;
 
 plugins {
     id("java")
-    id("org.springframework.boot").version("2.4.3")
-    id("io.spring.dependency-management").version("1.0.11.RELEASE")
-   // id("docker")
+    id("org.springframework.boot") version "2.4.3"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("com.github.johnrengelman.processes") version "0.5.0"
+    id("org.springdoc.openapi-gradle-plugin") version "1.3.0"  // TODO: see https://springdoc.org/#gradle-plugin
+
+    // id("docker")
    // id("com.palantir.git-version")
     // openjdk:15-jdk-buster-node-browsers
 }
